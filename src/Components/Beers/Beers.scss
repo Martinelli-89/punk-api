@@ -1,0 +1,16 @@
+.intro {
+
+    height: 96vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__description {
+
+        color: #ddc6b6;
+        text-align: center;
+        width: 60vw;
+
+    }
+
+}

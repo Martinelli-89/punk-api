@@ -1,9 +1,17 @@
+import {React, useState} from "react";
 import './App.scss';
 
+import Search from './Components/Search/Search.jsx';
+import Beers from './Components/Beers/Beers.jsx';
+
 const App = () => {
+
+  const [beers, addBeers] = useState();
+
   return (
     <div className="App">
-      PUNK API
+      <Beers data={beers}/>
+      <Search />
     </div>
   );
 }
