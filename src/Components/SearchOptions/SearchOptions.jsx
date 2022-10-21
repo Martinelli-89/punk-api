@@ -21,8 +21,10 @@ const SearchOptions = ({options, swipeParams}) => {
                 <p className="secondParam__param">{options[1][1][0]}</p>
                 <img src={right} alt="secSlideRight" className="secondParam__right"></img>
             </div>
-            <input></input>
-            <button>See menu</button>
+            <div className="submit">
+                <input className="submit__input"></input>
+                <button className="submit__button">See menu</button>
+            </div>
         </section>
 
     );

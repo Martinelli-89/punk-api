@@ -3,15 +3,16 @@
     display: flex;
     flex-direction: column;
     color: #DDc6b6;
-    margin-top: 1.5vh;
+    align-items: center;
 
     .mainParam {
 
-        height: 7vh;
+        height: 11vh;
         display:grid;
         grid-template-columns: 10fr 25fr 30fr 25fr 10fr;
         grid-template-areas: "arrL sideL mid sideR arrR";
         align-items: center;
+        width: 99%;
 
         &__left {
             grid-area: arrL;
@@ -54,11 +55,12 @@
 
         height: 5vh;
         display:grid;
-        grid-template-columns: 25fr 50fr 25fr;
+        grid-template-columns: 20fr 60fr 20fr;
         grid-template-areas: "arrL mid arrR";
-        margin-top: 2vh;
+        margin-top: 3vh;
         align-items: center;
         justify-items: center;
+        width: 90%;
 
         &__left {
             grid-area: arrL;
@@ -74,6 +76,41 @@
             grid-area: arrR;
             height: 2vh;
             aspect-ratio: 1 / 1;
+        }
+
+    }
+
+    .submit {
+
+        background-color: #DDc6b6;
+        margin-top: 4vh;
+        width: 80vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 25px;
+        height: 6vh;
+
+        &__input {
+
+            background-color: #DDc6b6;
+            border: none;
+            width: 80vw;
+            border-radius: 25px;
+            height: 5vh;
+            text-align: center;
+
+        }
+
+        &__button {
+
+            background-color: rgb(38, 58, 104);
+            width: 20vw;
+            border-radius: 25px;
+            margin-right: 1.5vw;
+            height: 5.5vh;
+            color: #DDc6b6;
+
         }
 
     }
