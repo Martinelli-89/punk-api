@@ -4,7 +4,7 @@ import "./SearchOption.scss";
 import left from "../../Assets/Images/left.svg";
 import right from "../../Assets/Images/right.svg";
 
-const SearchOptions = ({options, swipeParams}) => {
+const SearchOptions = ({options, swipeParams, swipe2ndParam, submit}) => {
 
     return (
 
@@ -17,13 +17,13 @@ const SearchOptions = ({options, swipeParams}) => {
                 <img src={right} alt="slideRight" onClick={swipeParams} className="mainParam__right"></img>
             </div>
             <div className="secondParam">
-                <img src={left} alt="secSlideLeft" className="secondParam__left"></img>
+                {options[1][1][1] && <img src={left} alt="secSlideLeft" className="secondParam__left" onClick={swipe2ndParam}></img>}
                 <p className="secondParam__param">{options[1][1][0]}</p>
-                <img src={right} alt="secSlideRight" className="secondParam__right"></img>
+                {options[1][1][1] && <img src={right} alt="secSlideRight" className="secondParam__right" onClick={swipe2ndParam}></img>}
             </div>
             <div className="submit">
-                <input className="submit__input"></input>
-                <button className="submit__button">See menu</button>
+                <input type={options[1][0] == "BY DATE" ? "month" : "text"} className="submit__input"></input>
+                <button className="submit__button" onClick={submit}>See menu</button>
             </div>
         </section>
 

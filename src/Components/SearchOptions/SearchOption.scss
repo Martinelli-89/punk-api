@@ -102,6 +102,10 @@
 
         }
 
+        &__input:focus {
+            outline: none;
+        }
+
         &__button {
 
             background-color: rgb(38, 58, 104);

@@ -3,24 +3,67 @@ import "./SearchMenu.scss";
 import dropUp from "../../Assets/Images/DropUp.svg";
 import dropDown from "../../Assets/Images/DropDown.svg"
 import Searchoptions from "../SearchOptions/SearchOptions";
+import dataToQuery from "../../Logic/dataToQuery.js";
 
 const SearchMenu = ({showMenu, toggleShowMenu}) => {
 
-    const [firstParams, setFirstParams] = useState([["ABV", ["LESSER THEN", "GREATER THEN"]], ["IBU", ["LESSER THEN", "GREATER THEN"]], ["EBC", ["LESSER THEN", "GREATER THEN"]], ["BY DATE", ["BREWED BEFORE", "BREWED AFTER"]], ["BY NAME", ["ENTER NAME BELOW"]],["BY YEAST", ["ENTER YEEAST BELOW"]],["BY HOP", ["ENTER HOP BELOW"]],["BY MALT", ["ENTER MALT BELOW"]]]);
+    const [firstParams, setFirstParams] = useState([["ABV", ["LESSER THEN", "GREATER THEN"]], ["IBU", ["LESSER THEN", "GREATER THEN"]], ["EBC", ["LESSER THEN", "GREATER THEN"]], ["BY DATE", ["BREWED BEFORE", "BREWED AFTER"]], ["BY NAME", ["ENTER NAME BELOW"]],["BY YEAST", ["ENTER YEAST BELOW. USE & FOR MORE VALUES"]],["BY HOP", ["ENTER HOP BELOW. USE & FOR MORE VALUES"]],["BY MALT", ["ENTER MALT BELOW. USE & FOR MORE VALUES"]],["ONE", ["TRUE LOVE"]]]);
+    const [input, setInput] =useState();
     
+    const clearInput = () => {
+
+        const inp = document.querySelector(".submit__input");
+        inp.value = "";
+
+    }
+
     const handleMainParamChange = (event) => {
 
-        if (event.target.className == "left") {
+        if (event.target.className == "mainParam__left") {
             const firstElem = [firstParams[0]];
             const remainingParams = firstParams.slice(1);
             const updatedParams = remainingParams.concat(firstElem);
             setFirstParams(updatedParams);
+            clearInput();
+
         } else {
             const lastElem = [firstParams[firstParams.length-1]];
             const remainingParams = firstParams.slice(0, -1);
             const updatedParams = lastElem.concat(remainingParams);
             setFirstParams(updatedParams);
+            clearInput();
         }
+
+    }
+
+    const handleSecondParamChange = () => {
+
+        
+        const updatedArr = firstParams.map ( elem => {
+
+            if(elem == firstParams[1]) {
+                return [firstParams[1][0],[firstParams[1][1][1], firstParams[1][1][0]]];
+            } else {
+                return elem;
+            }
+
+        });
+
+        setFirstParams(updatedArr);
+
+    }
+
+    const handleSubmit = () => {
+
+        const endQuery = document.querySelector(".submit__input").value;
+
+        let query = "https://api.punkapi.com/v2/beers"
+
+        query += dataToQuery(firstParams[1][0], firstParams[1][1][0]);
+
+        query += endQuery;
+
+        console.log(query);
 
     }
 
@@ -39,7 +82,10 @@ const SearchMenu = ({showMenu, toggleShowMenu}) => {
         menu = 
             <div className="dropDown">
                 <img src={dropDown} alt="Close menu" className="dropDown__icon" onClick={toggleShowMenu}></img>
-                <Searchoptions options={firstParams} swipeParams={handleMainParamChange} />
+                <Searchoptions  options={firstParams}
+                                swipeParams={handleMainParamChange}  
+                                swipe2ndParam={handleSecondParamChange}
+                                submit={handleSubmit}/>
             </div>;
 
 
