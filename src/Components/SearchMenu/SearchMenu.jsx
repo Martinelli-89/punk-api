@@ -4,6 +4,7 @@ import dropUp from "../../Assets/Images/DropUp.svg";
 import dropDown from "../../Assets/Images/DropDown.svg"
 import Searchoptions from "../SearchOptions/SearchOptions";
 import dataToQuery from "../../Logic/dataToQuery.js";
+import convertDate from "../../Logic/convertDate.js";
 
 const SearchMenu = ({showMenu, toggleShowMenu}) => {
 
@@ -55,8 +56,15 @@ const SearchMenu = ({showMenu, toggleShowMenu}) => {
 
     const handleSubmit = () => {
 
-        const endQuery = document.querySelector(".submit__input").value;
+        let endQuery;
+        const inp = document.querySelector(".submit__input");
 
+        if(inp.type == "month") {
+            endQuery = convertDate(inp.value);
+        } else {
+            endQuery = inp.value;
+        }
+ 
         let query = "https://api.punkapi.com/v2/beers"
 
         query += dataToQuery(firstParams[1][0], firstParams[1][1][0]);
