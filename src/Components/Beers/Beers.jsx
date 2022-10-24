@@ -1,11 +1,16 @@
 import './Beers.scss';
 
+import {React, useState} from 'react';
+import beers from "../../Assets/Data/MockData.js";
+import DisplayBeers from '../DisplayBeers/DisplayBeers.jsx';
 
-const Beers = ({beers}) => {
+const Beers = ({dataQuery}) => {
+
+    const [beersData, updateBeersData] = useState(beers);
 
     let render;
     
-    if (beers == undefined) {
+    if (beersData == undefined) {
         
         render = 
             <section className='intro'>
@@ -16,12 +21,16 @@ const Beers = ({beers}) => {
                 </h3>
             </section>
 
+    } else {
+
+        render = <DisplayBeers data={beersData}/>
+
     }
 
     return (
-        <>
+        <div>
             {render}
-        </>
+        </div>
     );
 }
 

@@ -6,12 +6,19 @@ import Beers from './Components/Beers/Beers.jsx';
 
 const App = () => {
 
-  const [beers, addBeers] = useState();
+  const [APIquery, setAPIquery] = useState();
+
+  const updateQuery = (value) => {
+    
+    setAPIquery(value);
+
+  }
+
 
   return (
     <div className="App">
-      <Beers data={beers}/>
-      <Search />
+      <Beers dataQuery={APIquery}/>
+      <Search updateQuery={updateQuery}/>
     </div>
   );
 }

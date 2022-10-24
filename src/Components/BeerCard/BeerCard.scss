@@ -1,0 +1,68 @@
+.beerCard {
+
+    display: grid;
+    grid-template-areas: "main main side price";
+    grid-template-columns: 2fr 1fr 1fr;
+    width: 90vw;
+    height: 15vh;
+    color: #ddc6b6;
+    border: 1px solid #ddc6b6;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+
+
+    &__left {
+
+        grid-area: main;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        
+
+    }
+
+    &__middle {
+
+        grid-area: side;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        text-align: center;
+
+
+        .abv {
+
+            grid-row: 0 / 1;
+
+        }
+
+        .ibu {
+
+            grid-row: 1 / 2;
+
+        }
+
+        .hp {
+
+            grid-row: 2 / 3;
+
+        }
+
+    }
+
+    &__right {
+
+        grid-template-columns: price;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-right: 1vw;
+
+    }
+
+}

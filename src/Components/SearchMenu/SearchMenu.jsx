@@ -6,10 +6,9 @@ import Searchoptions from "../SearchOptions/SearchOptions";
 import dataToQuery from "../../Logic/dataToQuery.js";
 import convertDate from "../../Logic/convertDate.js";
 
-const SearchMenu = ({showMenu, toggleShowMenu}) => {
+const SearchMenu = ({showMenu, toggleShowMenu, updateQuery}) => {
 
     const [firstParams, setFirstParams] = useState([["ABV", ["LESSER THEN", "GREATER THEN"]], ["IBU", ["LESSER THEN", "GREATER THEN"]], ["EBC", ["LESSER THEN", "GREATER THEN"]], ["BY DATE", ["BREWED BEFORE", "BREWED AFTER"]], ["BY NAME", ["ENTER NAME BELOW"]],["BY YEAST", ["ENTER YEAST BELOW. USE & FOR MORE VALUES"]],["BY HOP", ["ENTER HOP BELOW. USE & FOR MORE VALUES"]],["BY MALT", ["ENTER MALT BELOW. USE & FOR MORE VALUES"]],["ONE", ["TRUE LOVE"]]]);
-    const [input, setInput] =useState();
     
     const clearInput = () => {
 
@@ -71,7 +70,7 @@ const SearchMenu = ({showMenu, toggleShowMenu}) => {
 
         query += endQuery;
 
-        console.log(query);
+        updateQuery(query);
 
     }
 
