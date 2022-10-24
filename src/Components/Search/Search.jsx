@@ -2,7 +2,7 @@ import {React, useState} from "react";
 
 import SearchMenu from "../SearchMenu/SearchMenu.jsx";
 
-const Search = ({updateQuery}) => {
+const Search = ({getBeers}) => {
 
     const [showMenu, setShowMenu] = useState(false);
 
@@ -15,7 +15,7 @@ const Search = ({updateQuery}) => {
     return (
 
         <>
-            <SearchMenu showMenu={showMenu} toggleShowMenu={toggleShowMenu} updateQuery={updateQuery}/>
+            <SearchMenu showMenu={showMenu} toggleShowMenu={toggleShowMenu} getBeers={getBeers}/>
         </>
 
     );

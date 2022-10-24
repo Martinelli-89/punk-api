@@ -6,19 +6,20 @@ import Beers from './Components/Beers/Beers.jsx';
 
 const App = () => {
 
-  const [APIquery, setAPIquery] = useState();
+  const [beersData, updateBeersData] = useState();
 
-  const updateQuery = (value) => {
-    
-    setAPIquery(value);
-
-  }
+  const getBeers = async (query) => {
+    const url = query;
+    const res = await fetch(url);
+    const data = await res.json();
+    updateBeersData(data);
+  };
 
 
   return (
     <div className="App">
-      <Beers dataQuery={APIquery}/>
-      <Search updateQuery={updateQuery}/>
+      <Beers beers={beersData}/>
+      <Search getBeers={getBeers}/>
     </div>
   );
 }

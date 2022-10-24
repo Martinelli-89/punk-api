@@ -6,7 +6,7 @@ import Searchoptions from "../SearchOptions/SearchOptions";
 import dataToQuery from "../../Logic/dataToQuery.js";
 import convertDate from "../../Logic/convertDate.js";
 
-const SearchMenu = ({showMenu, toggleShowMenu, updateQuery}) => {
+const SearchMenu = ({showMenu, toggleShowMenu, getBeers}) => {
 
     const [firstParams, setFirstParams] = useState([["ABV", ["LESSER THEN", "GREATER THEN"]], ["IBU", ["LESSER THEN", "GREATER THEN"]], ["EBC", ["LESSER THEN", "GREATER THEN"]], ["BY DATE", ["BREWED BEFORE", "BREWED AFTER"]], ["BY NAME", ["ENTER NAME BELOW"]],["BY YEAST", ["ENTER YEAST BELOW. USE & FOR MORE VALUES"]],["BY HOP", ["ENTER HOP BELOW. USE & FOR MORE VALUES"]],["BY MALT", ["ENTER MALT BELOW. USE & FOR MORE VALUES"]],["ONE", ["TRUE LOVE"]]]);
     
@@ -70,7 +70,9 @@ const SearchMenu = ({showMenu, toggleShowMenu, updateQuery}) => {
 
         query += endQuery;
 
-        updateQuery(query);
+        console.log(query);
+
+        getBeers(query);
 
     }
 

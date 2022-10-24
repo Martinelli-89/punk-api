@@ -1,23 +1,14 @@
 import './Beers.scss';
-import {React, useState} from "react";
+import {React, useState, useEffect} from "react";
 
 import DisplayBeers from '../DisplayBeers/DisplayBeers.jsx';
 
-const Beers = ({dataQuery}) => {
-
-    const [beersData, updateBeersData] = useState(undefined);
-
-    const getBeers = async () => {
-        const url = dataQuery;
-        const res = await fetch(url);
-        const data = await res.json();
-        updateBeersData(data.results);
-      };
-
+const Beers = ({beers}) => {
 
     let render;
+    console.log("Beers data:  " + beers);
     
-    if (beersData == undefined) {
+    if (beers == undefined) {
         
         render = 
             <section className='intro'>
@@ -30,7 +21,7 @@ const Beers = ({dataQuery}) => {
 
     } else {
 
-        render = <DisplayBeers data={beersData}/>
+        render = <DisplayBeers data={beers}/>
 
     }
 
