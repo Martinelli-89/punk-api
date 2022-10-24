@@ -1,12 +1,19 @@
 import './Beers.scss';
+import {React, useState} from "react";
 
-import {React, useState} from 'react';
-import beers from "../../Assets/Data/MockData.js";
 import DisplayBeers from '../DisplayBeers/DisplayBeers.jsx';
 
 const Beers = ({dataQuery}) => {
 
-    const [beersData, updateBeersData] = useState(beers);
+    const [beersData, updateBeersData] = useState(undefined);
+
+    const getBeers = async () => {
+        const url = dataQuery;
+        const res = await fetch(url);
+        const data = await res.json();
+        updateBeersData(data.results);
+      };
+
 
     let render;
     
@@ -28,9 +35,9 @@ const Beers = ({dataQuery}) => {
     }
 
     return (
-        <div>
+        <>
             {render}
-        </div>
+        </>
     );
 }
 
