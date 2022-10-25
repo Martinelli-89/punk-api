@@ -4,6 +4,13 @@ import "./DisplayBeers.scss";
 
 const DisplayBeers = ({data}) => {
 
+    const emptyBoard = <section className="beerCard">
+                            <div className="beerCard__left">
+                                <h2 className="beerName">Coming soon</h2>
+                                <h4 className="beerTagline"></h4>
+                            </div>
+                        </section>;
+
     const cards = data.map((beer, index) => {
 
         return (
@@ -13,6 +20,10 @@ const DisplayBeers = ({data}) => {
         );
 
     });
+
+    while(cards.length < 5) {
+        cards.push(emptyBoard);
+    }
 
     return (
 

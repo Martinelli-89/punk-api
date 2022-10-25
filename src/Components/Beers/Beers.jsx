@@ -6,7 +6,6 @@ import DisplayBeers from '../DisplayBeers/DisplayBeers.jsx';
 const Beers = ({beers}) => {
 
     let render;
-    console.log("Beers data:  " + beers);
     
     if (beers == undefined) {
         
