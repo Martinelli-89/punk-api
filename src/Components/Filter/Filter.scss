@@ -1,0 +1,37 @@
+.filter {
+
+    background-color: #DDc6b6;
+    margin-top: 4vh;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    height: 6vh;
+
+    &__input {
+
+        background-color: #DDc6b6;
+        border: none;
+        width: 80vw;
+        border-radius: 25px;
+        height: 5vh;
+        text-align: center;
+
+    }
+
+    &__input:focus {
+        outline: none;
+    }
+
+    &__button {
+
+        background-color: rgb(38, 58, 104);
+        width: 20vw;
+        border-radius: 25px;
+        margin-right: 1.5vw;
+        height: 5.5vh;
+        color: #DDc6b6;
+
+    }
+}

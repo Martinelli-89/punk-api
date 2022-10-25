@@ -1,12 +1,15 @@
 import {React, useState} from "react";
 import './App.scss';
 
-import Search from './Components/Search/Search.jsx';
-import Beers from './Components/Beers/Beers.jsx';
+import MainDisplay from "./Components/MainDisplay/MainDisplay.jsx";
+import Nav from "./Components/Nav/Nav.jsx";
 
 const App = () => {
 
   const [beersData, updateBeersData] = useState();
+  const [showMenu, setShowMenu] = useState (false);
+  const [speakToBarman, setSpeakToBarman] = useState(false);
+  const [beersFilter, setBeerFilter] = useState(undefined);
 
   const getBeers = async (query) => {
     const url = query;
@@ -15,11 +18,36 @@ const App = () => {
     updateBeersData(data);
   };
 
+  const handleMenuClick = () => {
+
+    setShowMenu(!showMenu);
+
+  }
+
+  const handleBarmanClick = () => {
+
+    setSpeakToBarman(!speakToBarman);
+
+  }
+
+  const handleBeerFilterChange = (event) => {
+
+    event.preventDefault();
+    setBeerFilter(event.target.value);
+
+  }
+
 
   return (
     <div className="App">
-      <Beers beers={beersData}/>
-      <Search getBeers={getBeers}/>
+      <Nav menuClick={handleMenuClick} barmanClick={handleBarmanClick}/>
+      <MainDisplay  showMenu={showMenu}
+                    speakToBarman={speakToBarman}
+                    beers={getBeers}
+                    closeSearch={handleMenuClick}
+                    beersData={beersData}
+                    beersFilter={beersFilter}
+                    handleChange={handleBeerFilterChange}/>
     </div>
   );
 }

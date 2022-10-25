@@ -6,7 +6,7 @@ import Searchoptions from "../SearchOptions/SearchOptions";
 import dataToQuery from "../../Logic/dataToQuery.js";
 import convertDate from "../../Logic/convertDate.js";
 
-const SearchMenu = ({showMenu, toggleShowMenu, getBeers}) => {
+const SearchMenu = ({getBeers, showMenu}) => {
 
     const [firstParams, setFirstParams] = useState([["ABV", ["LESSER THEN", "GREATER THEN"]], ["IBU", ["LESSER THEN", "GREATER THEN"]], ["EBC", ["LESSER THEN", "GREATER THEN"]], ["BY DATE", ["BREWED BEFORE", "BREWED AFTER"]], ["BY NAME", ["ENTER NAME BELOW"]],["BY YEAST", ["ENTER YEAST BELOW. USE & FOR MORE VALUES"]],["BY HOP", ["ENTER HOP BELOW. USE & FOR MORE VALUES"]],["BY MALT", ["ENTER MALT BELOW. USE & FOR MORE VALUES"]],["ONE", ["TRUE LOVE"]]]);
     
@@ -68,37 +68,23 @@ const SearchMenu = ({showMenu, toggleShowMenu, getBeers}) => {
 
         query += dataToQuery(firstParams[1][0], firstParams[1][1][0]);
 
-        query += endQuery;
+        query += endQuery+"&page=1&per_page=5";
 
         console.log(query);
 
         getBeers(query);
 
+        showMenu();
+
     }
 
-    let menu;
-
-    if(showMenu == false) {
-
-        menu = 
-            <div className="dropUp">
-                <img src={dropUp} alt="Open menu" className="dropUp__icon" onClick={toggleShowMenu}></img>
-                <p>Order here</p>
-            </div>;
-
-    } else {
-
-        menu = 
-            <div className="dropDown">
-                <img src={dropDown} alt="Close menu" className="dropDown__icon" onClick={toggleShowMenu}></img>
+    let menu = 
+            <>
                 <Searchoptions  options={firstParams}
                                 swipeParams={handleMainParamChange}  
                                 swipe2ndParam={handleSecondParamChange}
                                 submit={handleSubmit}/>
-            </div>;
-
-
-    }
+            </>;
 
     return (
 
