@@ -1,22 +1,31 @@
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
 import DisplayBeers from '../DisplayBeers/DisplayBeers';
 import Filter from '../Filter/Filter.jsx';
 import SearchMenu from '../SearchMenu/SearchMenu';
 import "./MainDisplay.scss";
 
-const MainDisplay = ({showMenu, speakToBarman, beers, closeSearch, beersData, beersFilter, handleChange}) => {
+const MainDisplay = ({showMenu, speakToBarman, beers, closeSearch, beersData, beersFilter, handleChange, windowWidth}) => {
 
-    const [beerToDisplay, setBeerToDisplay] = useState([0,4]);
+    let amountCardsToDisplay = Math.floor((windowWidth/ 180)) * 2;
+
+
+    const [beerToDisplay, setBeerToDisplay] = useState([0,amountCardsToDisplay]);
+
+    useEffect(()=> {
+
+        setBeerToDisplay([0, amountCardsToDisplay]);
+
+    },[windowWidth])
 
     const changeBeerToDisplay = (event) => {
         
         if(event.target.classList.contains("plus")) {
             if(beerToDisplay[1] < beersData.length) {
-                setBeerToDisplay([beerToDisplay[0]+4,beerToDisplay[1]+4]);
+                setBeerToDisplay([beerToDisplay[0]+amountCardsToDisplay,beerToDisplay[1]+amountCardsToDisplay]);
             }
         } else {
             if(beerToDisplay[0]>0) {
-                setBeerToDisplay([beerToDisplay[0]-4,beerToDisplay[1]-4]);
+                setBeerToDisplay([beerToDisplay[0]-amountCardsToDisplay,beerToDisplay[1]-amountCardsToDisplay]);
             }
         }
     }
