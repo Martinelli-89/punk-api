@@ -31,7 +31,7 @@ const MainDisplay = ({showMenu, speakToBarman, beers, closeSearch, beersData, be
     }
 
     let render = <main>
-                    <h3>Welcome to the _nology pub. Get yourself a beer!</h3>
+                    <h3>Welcome to the _nology pub. Get yourself one of our amazing been and enjoy the company of our bartender!</h3>
                 </main>;
 
     if(showMenu === true) {

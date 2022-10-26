@@ -12,7 +12,7 @@
 
     &__input {
 
-        background-color: #DDc6b6;
+        color: #DDc6b6;
         border: none;
         width: 60vw;
         border-radius: 25px;
@@ -21,7 +21,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: none;
+        background-color: #222322;
+        border: 2px solid goldenrod;
 
     }
 

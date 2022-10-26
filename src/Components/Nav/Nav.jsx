@@ -6,8 +6,12 @@ const Nav = ({menuClick, barmanClick}) => {
     return (
 
         <nav className="nav">
-            <p className="nav__search" onClick={menuClick}>Search <br></br> beer</p>
-            <p className="nav__barman" onClick={barmanClick}>Speak with <br></br> barman</p>
+            <div className="nav__search" >
+                <p onClick={menuClick}>Search <br></br> beer</p>
+            </div>
+            <div className="nav__barman">
+                <p onClick={barmanClick}>Speak with <br></br> barman</p>
+            </div>
         </nav>
 
     );

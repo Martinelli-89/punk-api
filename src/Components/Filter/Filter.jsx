@@ -1,6 +1,5 @@
 import {React} from 'react';
 import "./Filter.scss";
-import beerTaps from "../../Assets/Images/beerTaps.svg";
 
 const Filter = ({handleChange}) => {
 

@@ -1,8 +1,8 @@
 import {React} from "react";
 import BeerCard from "../BeerCard/BeerCard.jsx";
 import "./DisplayBeers.scss";
-import left from "../../Assets/Images/left.svg";
-import right from "../../Assets/Images/right.svg";
+import left from "../../Assets/Images/leftBlack.svg";
+import right from "../../Assets/Images/rightBlack.svg";
 
 const DisplayBeers = ({data, beersFilter, setBeerToDisplay}) => {
 
