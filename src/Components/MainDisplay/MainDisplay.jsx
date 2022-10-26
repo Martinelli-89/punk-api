@@ -4,12 +4,13 @@ import Filter from '../Filter/Filter.jsx';
 import SearchMenu from '../SearchMenu/SearchMenu';
 import "./MainDisplay.scss";
 
-const MainDisplay = ({showMenu, speakToBarman, beers, closeSearch, beersData, beersFilter, handleChange, windowWidth}) => {
+const MainDisplay = ({showMenu, speakToBarman, beers, closeSearch, beersData, beersFilter, handleChange, windowWidth, message, handleBarChat}) => {
 
     let amountCardsToDisplay = Math.floor((windowWidth/ 180)) * 2;
 
 
     const [beerToDisplay, setBeerToDisplay] = useState([0,amountCardsToDisplay]);
+   
 
     useEffect(()=> {
 
@@ -38,7 +39,20 @@ const MainDisplay = ({showMenu, speakToBarman, beers, closeSearch, beersData, be
         render = <main>
                     <SearchMenu getBeers={beers} showMenu={closeSearch}/>
                 </main>;
-    } else if (beersData != undefined) {
+    } 
+        else if (speakToBarman == true) {
+
+            render =    <main>
+                            <h3>{message}</h3>
+                            <div  className='barbot'>
+                                <input type="text" className="barbot__input"></input>
+                                <button className="barbot__button" onClick={handleBarChat}>Send</button>
+                            </div>
+                        </main>;
+
+        }
+    
+        else if (beersData != undefined) {
 
         if(beersData == "There was en error with your request. Please check the input and try again") {
 

@@ -16,6 +16,7 @@ const App = () => {
   const [speakToBarman, setSpeakToBarman] = useState(false);
   const [beersFilter, setBeerFilter] = useState(undefined);;
   const [windowSize, setWindowSize] = useState(getWindowSize());
+  const [answer, setAnswer] = useState("Hey, I am your barbot! Fancy a pint or a joke?");
 
   const getBeers = async (query) => {
     const url = query;
@@ -25,6 +26,18 @@ const App = () => {
     } else {
       const data = await res.json();
       updateBeersData(data);
+    }
+  };
+
+  const getBarbot = async (message) => {
+    const url = `http://api.brainshop.ai/get?bid=167018&key=GdlsypbPt0FMpT8E&uid={1}&msg={${message}}`;
+    const res = await fetch(url);
+    if(!res.ok) {
+      setAnswer("Sorry I didn't understand, please try to input again!");
+    } else {
+      const data = await res.json();
+      console.log(data);
+      setAnswer(data.cnt);
     }
   };
 
@@ -44,16 +57,30 @@ const App = () => {
 
   },[])
 
+  const handleBarChat = () => {
+
+    const message = document.querySelector(".barbot__input");
+    const messageValue = message.value;
+
+    getBarbot(messageValue);
+
+  }
+
   const handleMenuClick = () => {
 
     setShowMenu(!showMenu);
+    if(speakToBarman==true) {
+      setSpeakToBarman(!speakToBarman);
+    }
 
   }
 
   const handleBarmanClick = () => {
 
     setSpeakToBarman(!speakToBarman);
-
+    if(showMenu==true) {
+      setShowMenu(!showMenu);
+    }
   }
 
   const handleBeerFilterChange = (event) => {
@@ -61,6 +88,17 @@ const App = () => {
     event.preventDefault();
     setBeerFilter(event.target.value);
 
+  }
+
+  const filterBeers = (beers, filter) => {
+
+    if (filter == undefined) {
+      return beers;
+    } else {
+
+      return beers.filter(beer => beer.name.includes(filter))
+
+    }
   }
 
 
@@ -71,10 +109,11 @@ const App = () => {
                     speakToBarman={speakToBarman}
                     beers={getBeers}
                     closeSearch={handleMenuClick}
-                    beersData={beersData}
-                    beersFilter={beersFilter}
+                    beersData={filterBeers(beersData, beersFilter)}
                     handleChange={handleBeerFilterChange}
-                    windowWidth={windowSize.innerWidth}/>
+                    windowWidth={windowSize.innerWidth}
+                    message={answer}
+                    handleBarChat={handleBarChat}/>
     </div>
   );
 }
