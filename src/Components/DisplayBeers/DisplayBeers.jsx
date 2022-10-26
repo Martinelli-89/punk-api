@@ -4,7 +4,7 @@ import "./DisplayBeers.scss";
 import left from "../../Assets/Images/left.svg";
 import right from "../../Assets/Images/right.svg";
 
-const DisplayBeers = ({data, beersFilter, updatePage}) => {
+const DisplayBeers = ({data, beersFilter, setBeerToDisplay}) => {
 
     const cards = data.map((beer, index) => {
 
@@ -34,12 +34,12 @@ const DisplayBeers = ({data, beersFilter, updatePage}) => {
             </section>
             <div className="changePage">
                 <div className="left">
-                    <img src={left} className="minus" onClick={updatePage}></img>
+                    <img src={left} className="minus" onClick={setBeerToDisplay}></img>
                     Previous page
                 </div>
                 <div className="right">
                     Next page
-                    <img src={right} className="plus" onClick={updatePage}></img>
+                    <img src={right} className="plus" onClick={setBeerToDisplay}></img>
                 </div>
             </div>
         </>

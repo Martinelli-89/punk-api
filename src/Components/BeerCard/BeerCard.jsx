@@ -12,7 +12,7 @@ const BeerCard = ({beer}) => {
             <div className="beerCard__top">
                 <h2 className="beerName">{trimName(beer.name)}</h2>
                 <img src={beerPic}></img>
-                <h4 className="beerTagline">{beer.tagline}</h4>
+                <h4 className="beerTagline">{trimName(beer.tagline)}</h4>
             </div>
             <div className="beerCard__middle">
                 {beer.abv && <h6 className="abv">ABV <br></br>{beer.abv}</h6>}

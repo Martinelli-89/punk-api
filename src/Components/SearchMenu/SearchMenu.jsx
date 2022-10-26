@@ -8,7 +8,7 @@ import convertDate from "../../Logic/convertDate.js";
 
 const SearchMenu = ({getBeers, showMenu}) => {
 
-    const [firstParams, setFirstParams] = useState([["ABV", ["LESSER THEN", "GREATER THEN"]], ["IBU", ["LESSER THEN", "GREATER THEN"]], ["EBC", ["LESSER THEN", "GREATER THEN"]], ["BY DATE", ["BREWED BEFORE", "BREWED AFTER"]], ["BY NAME", ["ENTER NAME BELOW"]],["BY YEAST", ["ENTER YEAST BELOW. USE & FOR MORE VALUES"]],["BY HOP", ["ENTER HOP BELOW. USE & FOR MORE VALUES"]],["BY MALT", ["ENTER MALT BELOW. USE & FOR MORE VALUES"]],["ONE", ["TRUE LOVE"]]]);
+    const [firstParams, setFirstParams] = useState([["ABV", ["LESSER THEN", "GREATER THEN"]], ["IBU", ["LESSER THEN", "GREATER THEN"]], ["EBC", ["LESSER THEN", "GREATER THEN"]], ["BY DATE", ["BREWED BEFORE", "BREWED AFTER"]], ["BY NAME", ["ENTER NAME BELOW"]],["BY YEAST", ["ENTER YEAST BELOW. USE & FOR MORE VALUES"]],["BY HOP", ["ENTER HOP BELOW. USE & FOR MORE VALUES"]],["BY MALT", ["ENTER MALT BELOW. USE & FOR MORE VALUES"]]]);
     
     const clearInput = () => {
 
@@ -68,9 +68,7 @@ const SearchMenu = ({getBeers, showMenu}) => {
 
         query += dataToQuery(firstParams[1][0], firstParams[1][1][0]);
 
-        query += endQuery+"&page=1&per_page=3";
-
-        console.log(query);
+        query += endQuery;
 
         getBeers(query);
 

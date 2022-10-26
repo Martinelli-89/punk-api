@@ -14,8 +14,12 @@ const App = () => {
   const getBeers = async (query) => {
     const url = query;
     const res = await fetch(url);
-    const data = await res.json();
-    updateBeersData(data);
+    if(!res.ok) {
+      updateBeersData("There was en error with your request. Please check the input and try again");
+    } else {
+      const data = await res.json();
+      updateBeersData(data);
+    }
   };
 
   const handleMenuClick = () => {

@@ -4,9 +4,9 @@ const trimName = (beer) => {
         return beer;
     }
 
-    const ind = beer.indexOf(" ", 19);
+    const ind = beer.indexOf(" ", 18);
 
-    return beer.slice(0, ind);
+    return `${beer.slice(0, ind)}...`;
 
 }
 
