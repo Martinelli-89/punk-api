@@ -1,13 +1,14 @@
 .filter {
 
-    background-color: #DDc6b6;
-    margin-top: 4vh;
-    width: 80vw;
+    background: none;
+    width: 100vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border-radius: 25px;
     height: 6vh;
+    justify-self: flex-end;
 
     &__input {
 
@@ -17,6 +18,10 @@
         border-radius: 25px;
         height: 5vh;
         text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: none;
 
     }
 
@@ -24,14 +29,9 @@
         outline: none;
     }
 
-    &__button {
+    &__taps {
 
-        background-color: rgb(38, 58, 104);
-        width: 20vw;
-        border-radius: 25px;
-        margin-right: 1.5vw;
-        height: 5.5vh;
-        color: #DDc6b6;
-
+        max-width: 80%;
     }
+
 }

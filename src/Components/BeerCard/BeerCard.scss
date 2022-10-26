@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Fuzzy+Bubbles:wght@700&family=Gloria+Hallelujah&family=Indie+Flower&family=Patrick+Hand+SC&family=Rock+Salt&display=swap');
+
 .beerCard {
 
     display: grid;
@@ -7,8 +9,11 @@
     height: 15vh;
     color: #ddc6b6;
     border: 1px solid #ddc6b6;
+    background-color: #262223;
     margin-top: 1vh;
     margin-bottom: 1vh;
+    color:#509c49;
+
 
 
     &__left {
@@ -17,6 +22,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        margin-left: 2vw;
         
 
     }
@@ -59,7 +65,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         text-align: center;
         margin-right: 1vw;
 

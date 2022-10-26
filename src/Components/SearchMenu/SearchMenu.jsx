@@ -68,7 +68,7 @@ const SearchMenu = ({getBeers, showMenu}) => {
 
         query += dataToQuery(firstParams[1][0], firstParams[1][1][0]);
 
-        query += endQuery+"&page=1&per_page=5";
+        query += endQuery+"&page=1&per_page=3";
 
         console.log(query);
 
