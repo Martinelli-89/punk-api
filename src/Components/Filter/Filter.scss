@@ -7,14 +7,14 @@
     justify-content: center;
     align-items: center;
     border-radius: 25px;
-    height: 6vh;
+    height: 8vh;
     justify-self: flex-end;
 
     &__input {
 
         background-color: #DDc6b6;
         border: none;
-        width: 80vw;
+        width: 60vw;
         border-radius: 25px;
         height: 5vh;
         text-align: center;
@@ -27,11 +27,6 @@
 
     &__input:focus {
         outline: none;
-    }
-
-    &__taps {
-
-        max-width: 80%;
     }
 
 }

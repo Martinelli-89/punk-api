@@ -1,8 +1,48 @@
-.beerContainer {
+.beer-container {
 
     width: 100vw;
-    height: 91vh;
+    height: 70vh;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
 
+}
+
+
+.changePage {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+
+    .left {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            margin-right: 2vw;
+        }
+
+    }
+
+    .right {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            margin-left: 2vw;
+        }
+
+    }
+
+
+    img {
+        height: 3vh;
+    }
 }

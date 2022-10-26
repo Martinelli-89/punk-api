@@ -1,73 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Fuzzy+Bubbles:wght@700&family=Gloria+Hallelujah&family=Indie+Flower&family=Patrick+Hand+SC&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Fuzzy+Bubbles:wght@700&family=Gaegu&family=Indie+Flower&family=Long+Cang&family=Nerko+One&family=Patrick+Hand+SC&family=Sunshiney&family=Swanky+and+Moo+Moo&family=Yomogi&display=swap');
 
 .beerCard {
 
-    display: grid;
-    grid-template-areas: "main main side price";
-    grid-template-columns: 2fr 1fr 1fr;
-    width: 90vw;
-    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    width: 45vw;
+    height: 54vw;
     color: #ddc6b6;
     border: 1px solid #ddc6b6;
     background-color: #262223;
     margin-top: 1vh;
     margin-bottom: 1vh;
-    color:#509c49;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 25px;
 
 
 
-    &__left {
+    &__top {
 
-        grid-area: main;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         margin-left: 2vw;
-        
+        align-items: center;
+        text-align: center;
+
+        img {
+            width: 10vw;
+            margin-top: 1vh;
+            margin-bottom: 1vh;
+        }
 
     }
 
     &__middle {
 
-        grid-area: side;
-        display: grid;
-        grid-template-rows: 1fr 1fr 1fr;
         display: flex;
-        flex-direction: column;
         justify-content: space-evenly;
-        align-items: center;
+        width: 90%;
         text-align: center;
-
-
-        .abv {
-
-            grid-row: 0 / 1;
-
-        }
-
-        .ibu {
-
-            grid-row: 1 / 2;
-
-        }
-
-        .hp {
-
-            grid-row: 2 / 3;
-
-        }
-
-    }
-
-    &__right {
-
-        grid-template-columns: price;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        text-align: center;
-        margin-right: 1vw;
 
     }
 
