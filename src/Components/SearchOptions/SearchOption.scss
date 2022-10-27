@@ -11,6 +11,10 @@
     width: 320px;
     height: 300px;
 
+    @media screen and (min-width: 600px) {
+        font-size: 1.3rem;
+    }
+
     .mainParam {
 
         height: 11vh;
@@ -33,6 +37,10 @@
             justify-self: flex-start;
             font-size: 0.8rem;
             opacity: 0.8;
+
+            @media screen and (min-width: 500px) {
+                font-size: 1rem;
+            }
         }
 
         &__middle {
@@ -45,6 +53,10 @@
             grid-area: sideR;
             justify-self: flex-end;
             font-size: 0.8rem;
+
+            @media screen and (min-width: 500px) {
+                font-size: 1rem;
+            }
         }
 
         &__right {
