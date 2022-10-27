@@ -6,7 +6,7 @@ import Nav from "./Components/Nav/Nav.jsx";
 
 const App = () => {
 
-  function getWindowSize() {
+  const getWindowSize = () => {
     const {innerWidth, innerHeight} = window;
     return {innerWidth, innerHeight};
   }
@@ -14,7 +14,7 @@ const App = () => {
   const [beersData, updateBeersData] = useState();
   const [showMenu, setShowMenu] = useState (false);
   const [speakToBarman, setSpeakToBarman] = useState(false);
-  const [beersFilter, setBeerFilter] = useState(undefined);;
+  const [beersFilter, setBeerFilter] = useState(undefined);
   const [windowSize, setWindowSize] = useState(getWindowSize());
 
   const getBeers = async (query) => {

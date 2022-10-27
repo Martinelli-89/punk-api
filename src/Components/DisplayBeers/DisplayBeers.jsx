@@ -4,7 +4,7 @@ import "./DisplayBeers.scss";
 import left from "../../Assets/Images/leftBlack.svg";
 import right from "../../Assets/Images/rightBlack.svg";
 
-const DisplayBeers = ({data, beersFilter, setBeerToDisplay}) => {
+const DisplayBeers = ({data, setBeerToDisplay}) => {
 
     const cards = data.map((beer, index) => {
             

@@ -4,9 +4,9 @@ import Filter from '../Filter/Filter.jsx';
 import SearchMenu from '../SearchMenu/SearchMenu';
 import "./MainDisplay.scss";
 
-const MainDisplay = ({showMenu, beers, closeSearch, beersData, beersFilter, handleChange, windowWidth}) => {
+const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, windowWidth}) => {
 
-    let amountCardsToDisplay = Math.floor((windowWidth/ 180)) * 2;
+    const amountCardsToDisplay = Math.floor((windowWidth/ 180)) * 2;
 
 
     const [beerToDisplay, setBeerToDisplay] = useState([0,amountCardsToDisplay]);
@@ -24,11 +24,20 @@ const MainDisplay = ({showMenu, beers, closeSearch, beersData, beersFilter, hand
             if(beerToDisplay[1] < beersData.length) {
                 setBeerToDisplay([beerToDisplay[0]+amountCardsToDisplay,beerToDisplay[1]+amountCardsToDisplay]);
             }
-        } else {
+        } else  if(event.target.classList.contains("plus")){
             if(beerToDisplay[0]>0) {
                 setBeerToDisplay([beerToDisplay[0]-amountCardsToDisplay,beerToDisplay[1]-amountCardsToDisplay]);
             }
+        } else {
+            setBeerToDisplay([0, amountCardsToDisplay]);
         }
+    }
+
+    const handleChangeDoubleFunction = (event) => {
+
+        handleChange(event);
+        changeBeerToDisplay(event);
+
     }
 
     let render = <main>
@@ -52,9 +61,9 @@ const MainDisplay = ({showMenu, beers, closeSearch, beersData, beersFilter, hand
 
         render = <main>
                     <DisplayBeers   data={beersData.slice(beerToDisplay[0],beerToDisplay[1])}
-                                    beersFilter={beersFilter}
                                     setBeerToDisplay={changeBeerToDisplay}/>
-                    <Filter handleChange={handleChange}/>
+                    <Filter handleChange={handleChangeDoubleFunction}
+                            changeBeerToDisplay={changeBeerToDisplay}/>
                 </main>
         
     }
