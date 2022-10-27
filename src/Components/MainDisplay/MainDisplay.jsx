@@ -4,7 +4,7 @@ import Filter from '../Filter/Filter.jsx';
 import SearchMenu from '../SearchMenu/SearchMenu';
 import "./MainDisplay.scss";
 
-const MainDisplay = ({showMenu, speakToBarman, beers, closeSearch, beersData, beersFilter, handleChange, windowWidth, message, handleBarChat}) => {
+const MainDisplay = ({showMenu, beers, closeSearch, beersData, beersFilter, handleChange, windowWidth}) => {
 
     let amountCardsToDisplay = Math.floor((windowWidth/ 180)) * 2;
 
@@ -32,26 +32,14 @@ const MainDisplay = ({showMenu, speakToBarman, beers, closeSearch, beersData, be
     }
 
     let render = <main>
-                    <h3>Welcome to the _nology pub. Get yourself one of our amazing been and enjoy the company of our bartender!</h3>
+                    <h3>Welcome to the _nology pub. We believe that after every line of code you tipe you deserve a sip of beer. So sit down, open your laptop, and get yourself one of our amzing beers.</h3>
                 </main>;
 
     if(showMenu === true) {
         render = <main>
                     <SearchMenu getBeers={beers} showMenu={closeSearch}/>
                 </main>;
-    } 
-        else if (speakToBarman == true) {
-
-            render =    <main>
-                            <h3>{message}</h3>
-                            <div  className='barbot'>
-                                <input type="text" className="barbot__input"></input>
-                                <button className="barbot__button" onClick={handleBarChat}>Send</button>
-                            </div>
-                        </main>;
-
-        }
-    
+    }
         else if (beersData != undefined) {
 
         if(beersData == "There was en error with your request. Please check the input and try again") {

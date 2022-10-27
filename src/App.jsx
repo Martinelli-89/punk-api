@@ -1,6 +1,5 @@
 import {React, useState, useEffect} from "react";
 import './App.scss';
-import axios from 'axios';
 
 import MainDisplay from "./Components/MainDisplay/MainDisplay.jsx";
 import Nav from "./Components/Nav/Nav.jsx";
@@ -17,7 +16,6 @@ const App = () => {
   const [speakToBarman, setSpeakToBarman] = useState(false);
   const [beersFilter, setBeerFilter] = useState(undefined);;
   const [windowSize, setWindowSize] = useState(getWindowSize());
-  const [answer, setAnswer] = useState("Hey, I am your barbot! Fancy a pint or a joke?");
 
   const getBeers = async (query) => {
     const url = query;
@@ -28,26 +26,6 @@ const App = () => {
       const data = await res.json();
       updateBeersData(data);
     }
-  };
-
-  const getBarbot = async (message) => {
-
-    const options = {
-      method: 'GET',
-      url: 'http://api.brainshop.ai/wechat/get',
-      params: {bid: '167018', key: 'GdlsypbPt0FMpT8E', uid: '1', msg: message},
-      headers: {
-        'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
-        'X-RapidAPI-Host': 'acobot-brainshop-ai-v1.p.rapidapi.com',
-        'Access-Control-Allow-Origin' : '*'
-      }
-    };
-    
-    axios.request(options).then(function (response) {
-      console.log(response.data);
-    }).catch(function (error) {
-      console.error(error);
-    });
   };
 
   useEffect(()=> {
@@ -66,15 +44,6 @@ const App = () => {
 
   },[])
 
-  const handleBarChat = () => {
-
-    const message = document.querySelector(".barbot__input");
-    const messageValue = message.value;
-
-    getBarbot(messageValue);
-
-  }
-
   const handleMenuClick = () => {
 
     setShowMenu(!showMenu);
@@ -82,14 +51,6 @@ const App = () => {
       setSpeakToBarman(!speakToBarman);
     }
 
-  }
-
-  const handleBarmanClick = () => {
-
-    setSpeakToBarman(!speakToBarman);
-    if(showMenu==true) {
-      setShowMenu(!showMenu);
-    }
   }
 
   const handleBeerFilterChange = (event) => {
@@ -113,16 +74,14 @@ const App = () => {
 
   return (
     <div className="App">
-      <Nav menuClick={handleMenuClick} barmanClick={handleBarmanClick}/>
+      <Nav menuClick={handleMenuClick}/>
       <MainDisplay  showMenu={showMenu}
-                    speakToBarman={speakToBarman}
                     beers={getBeers}
                     closeSearch={handleMenuClick}
                     beersData={filterBeers(beersData, beersFilter)}
                     handleChange={handleBeerFilterChange}
                     windowWidth={windowSize.innerWidth}
-                    message={answer}
-                    handleBarChat={handleBarChat}/>
+                    />
     </div>
   );
 }

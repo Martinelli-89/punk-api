@@ -7,10 +7,7 @@ const Nav = ({menuClick, barmanClick}) => {
 
         <nav className="nav">
             <div className="nav__search" >
-                <p onClick={menuClick}>Search <br></br> beer</p>
-            </div>
-            <div className="nav__barman">
-                <p onClick={barmanClick}>Speak with <br></br> barman</p>
+                <p onClick={menuClick}>Search beer</p>
             </div>
         </nav>
 
