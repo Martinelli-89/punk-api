@@ -1,7 +1,5 @@
 import {React, useState} from "react";
 import "./SearchMenu.scss";
-import dropUp from "../../Assets/Images/DropUp.svg";
-import dropDown from "../../Assets/Images/DropDown.svg"
 import Searchoptions from "../SearchOptions/SearchOptions";
 import dataToQuery from "../../Logic/dataToQuery.js";
 import convertDate from "../../Logic/convertDate.js";

@@ -25,7 +25,7 @@
             height: 2vh;
             aspect-ratio: 1 / 1;
             justify-self: flex-start;
-            margin-left: 1vw;
+            margin-left: 1%;
         }
 
         &__sideL {
@@ -52,7 +52,7 @@
             height: 2vh;
             aspect-ratio: 1 / 1;
             justify-self: flex-end;
-            margin-right: 1vw;
+            margin-right: 1%;
         }
 
     }
@@ -90,7 +90,7 @@
 
         background-color: #DDc6b6;
         margin-top: 4vh;
-        width: 80vw;
+        width: 95%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -101,7 +101,7 @@
 
             background-color: #DDc6b6;
             border: none;
-            width: 80vw;
+            width: 80%;
             border-radius: 25px;
             height: 5vh;
             text-align: center;
@@ -116,9 +116,9 @@
         &__button {
 
             background-color: rgb(38, 58, 104);
-            width: 20vw;
+            width: 20%;
             border-radius: 25px;
-            margin-right: 1.5vw;
+            margin-right: 1.5%;
             height: 5.5vh;
             color: #DDc6b6;
 
