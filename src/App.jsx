@@ -1,5 +1,6 @@
 import {React, useState, useEffect} from "react";
 import './App.scss';
+import axios from 'axios';
 
 import MainDisplay from "./Components/MainDisplay/MainDisplay.jsx";
 import Nav from "./Components/Nav/Nav.jsx";
@@ -30,15 +31,23 @@ const App = () => {
   };
 
   const getBarbot = async (message) => {
-    const url = `http://api.brainshop.ai/get?bid=167018&key=GdlsypbPt0FMpT8E&uid={1}&msg={${message}}`;
-    const res = await fetch(url);
-    if(!res.ok) {
-      setAnswer("Sorry I didn't understand, please try to input again!");
-    } else {
-      const data = await res.json();
-      console.log(data);
-      setAnswer(data.cnt);
-    }
+
+    const options = {
+      method: 'GET',
+      url: 'http://api.brainshop.ai/wechat/get',
+      params: {bid: '167018', key: 'GdlsypbPt0FMpT8E', uid: '1', msg: message},
+      headers: {
+        'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
+        'X-RapidAPI-Host': 'acobot-brainshop-ai-v1.p.rapidapi.com',
+        'Access-Control-Allow-Origin' : '*'
+      }
+    };
+    
+    axios.request(options).then(function (response) {
+      console.log(response.data);
+    }).catch(function (error) {
+      console.error(error);
+    });
   };
 
   useEffect(()=> {
