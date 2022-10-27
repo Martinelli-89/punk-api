@@ -11,11 +11,19 @@ const App = () => {
     return {innerWidth, innerHeight};
   }
 
-  const [beersData, updateBeersData] = useState();
+  const [beersData, updateBeersData] = useState(undefined);
   const [showMenu, setShowMenu] = useState (false);
-  const [speakToBarman, setSpeakToBarman] = useState(false);
   const [beersFilter, setBeerFilter] = useState(undefined);
   const [windowSize, setWindowSize] = useState(getWindowSize());
+  const [isPH, setIsPH] = useState(false);
+
+  const toggleIsPH = (event) => {
+    if (event.target.checked) {
+      setIsPH(true);
+    } else {
+      setIsPH(false);
+    }
+  }
 
   const getBeers = async (query) => {
     const url = query;
@@ -47,9 +55,6 @@ const App = () => {
   const handleMenuClick = () => {
 
     setShowMenu(!showMenu);
-    if(speakToBarman==true) {
-      setSpeakToBarman(!speakToBarman);
-    }
 
   }
 
@@ -60,25 +65,34 @@ const App = () => {
 
   }
 
-  const filterBeers = (beers, filter) => {
+  const filterBeers = (beers, filter, isPH) => {
 
-    if (filter == undefined) {
+    if(beers ==undefined) {
+      return;
+    }
+
+    if (filter == undefined && isPH == false) {
       return beers;
+    } else  if (filter != undefined && isPH == false){
+        return beers.filter(beer => beer.name.includes(filter))
+    } else if (filter == undefined && isPH == true) {
+        return beers.filter(beer => beer.ph < 4)
     } else {
-
-      return beers.filter(beer => beer.name.includes(filter))
-
+        return beers.filter(beer => (beer.name.includes(filter) && beer.ph < 4))
     }
   }
 
 
   return (
     <div className="App">
-      <Nav menuClick={handleMenuClick}/>
+      <Nav  menuClick={handleMenuClick}
+            setIsPH={toggleIsPH}
+            beersData={toggleIsPH}
+            />
       <MainDisplay  showMenu={showMenu}
                     beers={getBeers}
                     closeSearch={handleMenuClick}
-                    beersData={filterBeers(beersData, beersFilter)}
+                    beersData={filterBeers(beersData, beersFilter,isPH)}
                     handleChange={handleBeerFilterChange}
                     windowWidth={windowSize.innerWidth}
                     />
