@@ -1,6 +1,6 @@
 const dataToQuery = (param1, param2) => {
 
-    let query;
+    let query="";
     
     switch (param1) {
 
@@ -21,12 +21,9 @@ const dataToQuery = (param1, param2) => {
         case("BY MALT"):
             query=`?malt=`;
             break;
-        case("ONE"):
-            query=`/random`;
-            break;
 
     }
-
+    
     switch (param2) {
 
         case ("LESSER THEN"):

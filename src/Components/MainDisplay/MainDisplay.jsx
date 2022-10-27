@@ -3,6 +3,7 @@ import DisplayBeers from '../DisplayBeers/DisplayBeers';
 import Filter from '../Filter/Filter.jsx';
 import SearchMenu from '../SearchMenu/SearchMenu';
 import "./MainDisplay.scss";
+import beer from "../../Assets/Images/beer.svg"
 
 const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, windowWidth, loading}) => {
 
@@ -52,7 +53,10 @@ const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, win
         else if (loading == true) {
 
             render = <main>
-                        <h3>Loading</h3>
+                        <div className='loadWrap'>
+                            <img src={beer}></img>
+                            <h3>Loading</h3>
+                        </div>
                     </main>;
 
         }
