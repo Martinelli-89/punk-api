@@ -10,14 +10,14 @@ const BeerCard = ({beer}) => {
 
         <section className="beerCard">
             <div className="beerCard__top">
-                <h2 className="beerName">{trimName(beer.name)}</h2>
+                <h3 className="beerName">{trimName(beer.name)}</h3>
                 <img src={beerPic}></img>
                 <h4 className="beerTagline">{trimName(beer.tagline)}</h4>
             </div>
             <div className="beerCard__middle">
-                {beer.abv && <h6 className="abv">ABV <br></br>{beer.abv}</h6>}
-                {beer.ibu && <h6 className="ibu">IBU <br></br> {beer.ibu}</h6>}
-                {beer.ph && <h6 className="ph">PH <br></br> {beer.ph}</h6>}
+                {beer.abv && <h5 className="abv">ABV <br></br>{beer.abv}</h5>}
+                {beer.ibu && <h5 className="ibu">IBU <br></br> {beer.ibu}</h5>}
+                {beer.ph && <h5 className="ph">PH <br></br> {beer.ph}</h5>}
             </div>
         </section>
 

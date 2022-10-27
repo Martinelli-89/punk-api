@@ -42,7 +42,7 @@ const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, win
     }
 
     let render = <main>
-                    <h3>Welcome to the _nology pub. We believe that after every line of code you tipe you deserve a sip of beer. So sit down, open your laptop, and get yourself one of our amazing beers.</h3>
+                    <div className='entrycard'>Welcome to the _nology pub. We believe that after every line of code you tipe you deserve a sip of beer. So sit down, open your laptop, and get yourself one of our amazing beers.</div>
                 </main>;
 
     if(showMenu === true) {
@@ -66,7 +66,7 @@ const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, win
         if(beersData == "There was en error with your request. Please check the input and try again") {
 
             render = <main>
-                        <h3>{beersData}</h3>
+                        <div className='entrycard'>{beersData}</div>
                     </main>;
 
         } else {
