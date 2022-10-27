@@ -16,6 +16,7 @@ const App = () => {
   const [beersFilter, setBeerFilter] = useState(undefined);
   const [windowSize, setWindowSize] = useState(getWindowSize());
   const [isPH, setIsPH] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const toggleIsPH = (event) => {
     if (event.target.checked) {
@@ -26,12 +27,15 @@ const App = () => {
   }
 
   const getBeers = async (query) => {
+    setLoading(true);
     const url = query;
     const res = await fetch(url);
     if(!res.ok) {
+      setLoading(false);
       updateBeersData("There was en error with your request. Please check the input and try again");
     } else {
       const data = await res.json();
+      setLoading(false);
       updateBeersData(data);
     }
   };
@@ -95,6 +99,7 @@ const App = () => {
                     beersData={filterBeers(beersData, beersFilter,isPH)}
                     handleChange={handleBeerFilterChange}
                     windowWidth={windowSize.innerWidth}
+                    loading={loading}
                     />
     </div>
   );

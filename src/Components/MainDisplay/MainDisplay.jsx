@@ -4,7 +4,7 @@ import Filter from '../Filter/Filter.jsx';
 import SearchMenu from '../SearchMenu/SearchMenu';
 import "./MainDisplay.scss";
 
-const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, windowWidth}) => {
+const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, windowWidth, loading}) => {
 
     const amountCardsToDisplay = Math.floor((windowWidth/ 180)) * 2;
 
@@ -41,7 +41,7 @@ const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, win
     }
 
     let render = <main>
-                    <h3>Welcome to the _nology pub. We believe that after every line of code you tipe you deserve a sip of beer. So sit down, open your laptop, and get yourself one of our amzing beers.</h3>
+                    <h3>Welcome to the _nology pub. We believe that after every line of code you tipe you deserve a sip of beer. So sit down, open your laptop, and get yourself one of our amazing beers.</h3>
                 </main>;
 
     if(showMenu === true) {
@@ -49,6 +49,14 @@ const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, win
                     <SearchMenu getBeers={beers} showMenu={closeSearch}/>
                 </main>;
     }
+        else if (loading == true) {
+
+            render = <main>
+                        <h3>Loading</h3>
+                    </main>;
+
+        }
+
         else if (beersData != undefined) {
 
         if(beersData == "There was en error with your request. Please check the input and try again") {
