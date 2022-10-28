@@ -36,7 +36,11 @@ const App = () => {
     } else {
       const data = await res.json();
       setLoading(false);
-      updateBeersData(data);
+      if(data.length < 1) {
+        updateBeersData("No beers match yours searchig criteria");
+      } else {
+        updateBeersData(data);
+      }
     }
   };
 

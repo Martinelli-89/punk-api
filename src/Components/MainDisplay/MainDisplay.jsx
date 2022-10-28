@@ -60,7 +60,7 @@ const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, win
         
         else if (beersData != undefined) {
 
-        if(beersData == "There was en error with your request. Please check the input and try again") {
+        if(typeof(beersData) == "string") {
 
             render = <main>
                         <div className='entrycard'>
@@ -69,18 +69,9 @@ const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, win
                             </div>
                     </main>;
 
-        }  
+        }   
         
-        else if (beersData.length == 0) {
-
-            render = <main>
-                        <div className='loadWrap'>
-                            <img src={beer}></img>
-                            <h3>No beers match your searching criteria</h3>
-                        </div>
-                    </main>;
-
-        }  else {
+        else {
 
         render = <main>
                     <DisplayBeers   data={beersData.slice(beerToDisplay[0],beerToDisplay[1])}
