@@ -16,7 +16,6 @@ As a challenge to test our understandment of React  during the _Nology course we
     <li>Technologies</li>
     <li>Setup</li>
     <li>Status</li>
-    <li>Future development</li>
 </ul>
 
 <h2>General Info</h2>
