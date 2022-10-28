@@ -25,7 +25,7 @@ const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, win
             if(beerToDisplay[1] < beersData.length) {
                 setBeerToDisplay([beerToDisplay[0]+amountCardsToDisplay,beerToDisplay[1]+amountCardsToDisplay]);
             }
-        } else  if(event.target.classList.contains("plus")){
+        } else  if(event.target.classList.contains("minus")){
             if(beerToDisplay[0]>0) {
                 setBeerToDisplay([beerToDisplay[0]-amountCardsToDisplay,beerToDisplay[1]-amountCardsToDisplay]);
             }
