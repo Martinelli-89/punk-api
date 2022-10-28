@@ -60,16 +60,28 @@ const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, win
                     </main>;
 
         }
-
+        
         else if (beersData != undefined) {
 
         if(beersData == "There was en error with your request. Please check the input and try again") {
 
             render = <main>
-                        <div className='entrycard'>{beersData}</div>
+                        <div className='entrycard'>
+                            <img src={beer} style = {{transform: 'rotate(180deg)'}}></img>
+                            {beersData}
+                            </div>
                     </main>;
 
-        } else {
+        }  else if (beersData.length == 0) {
+
+            render = <main>
+                        <div className='loadWrap'>
+                            <img src={beer}></img>
+                            <h3>No beers match your searching criteria</h3>
+                        </div>
+                    </main>;
+
+        }  else {
 
         render = <main>
                     <DisplayBeers   data={beersData.slice(beerToDisplay[0],beerToDisplay[1])}

@@ -41,6 +41,12 @@ main {
             justify-content: center;
             text-align: center;
             font-size: 1.1rem;
+            display: flex;
+            flex-direction: column;
+
+            img {
+                width: 40%;
+            }
 
             @media screen and (min-width: 600px) {
 
