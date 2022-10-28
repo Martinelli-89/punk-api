@@ -1,5 +1,4 @@
 import {React} from "react";
-import CreatePrices from "../../Logic/CreatePrices";
 import "./BeerCard.scss";
 import trimName from "../../Logic/TrimBeerName.js";
 import beerPic from "../../Assets/Images/beer.svg";

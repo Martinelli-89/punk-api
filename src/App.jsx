@@ -40,22 +40,6 @@ const App = () => {
     }
   };
 
-  useEffect(()=> {
-    
-    const handleWindowResize = () => {
-
-      setWindowSize(getWindowSize());
-
-    }
-
-    window.addEventListener('resize', handleWindowResize);
-
-    return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    }
-
-  },[])
-
   const handleMenuClick = () => {
 
     setShowMenu(!showMenu);
@@ -85,6 +69,22 @@ const App = () => {
         return beers.filter(beer => (beer.name.includes(filter) && beer.ph < 4))
     }
   }
+
+  useEffect(()=> {
+    
+    const handleWindowResize = () => {
+
+      setWindowSize(getWindowSize());
+
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    }
+
+  },[])
 
 
   return (

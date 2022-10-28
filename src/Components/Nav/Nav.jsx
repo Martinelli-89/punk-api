@@ -12,8 +12,7 @@ const Nav = ({menuClick, setIsPH}) => {
                 <p onClick={menuClick}>Search beer</p>
             </div>
             <div className="nav__filter" >
-                <Checkbox   setIsPH={setIsPH}
-                            />
+                <Checkbox   setIsPH={setIsPH}/>
             </div>
         </nav>
 

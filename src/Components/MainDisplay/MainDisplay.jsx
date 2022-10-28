@@ -8,16 +8,7 @@ import beer from "../../Assets/Images/beer.svg"
 const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, windowWidth, loading}) => {
 
     const amountCardsToDisplay = Math.floor((windowWidth/ 180)) * 2;
-
-
     const [beerToDisplay, setBeerToDisplay] = useState([0,amountCardsToDisplay]);
-   
-
-    useEffect(()=> {
-
-        setBeerToDisplay([0, amountCardsToDisplay]);
-
-    },[windowWidth])
 
     const changeBeerToDisplay = (event) => {
         
@@ -40,6 +31,12 @@ const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, win
         changeBeerToDisplay(event);
 
     }
+
+    useEffect(()=> {
+
+        setBeerToDisplay([0, amountCardsToDisplay]);
+
+    },[windowWidth])
 
     let render = <main>
                     <div className='entrycard'>Welcome to the _nology pub. We believe that after every line of code you tipe you deserve a sip of beer. So sit down, open your laptop, and get yourself one of our amazing beers.</div>
@@ -72,7 +69,9 @@ const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, win
                             </div>
                     </main>;
 
-        }  else if (beersData.length == 0) {
+        }  
+        
+        else if (beersData.length == 0) {
 
             render = <main>
                         <div className='loadWrap'>
@@ -90,10 +89,8 @@ const MainDisplay = ({showMenu, beers, closeSearch, beersData, handleChange, win
                             changeBeerToDisplay={changeBeerToDisplay}/>
                 </main>
         
+        }
     }
-    }
-
-
 
     return (
 

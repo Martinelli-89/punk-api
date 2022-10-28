@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import {React} from "react";
 import "./SearchOption.scss";
 
 import left from "../../Assets/Images/left.svg";
