@@ -2,7 +2,7 @@
 import {React, useState} from 'react';
 import "./Checkbox.scss";
 
-const Checkbox= ({setIsPH, setClassicRange}) => {
+const Checkbox= ({setIsPH}) => {
 
     const [PHchecked, setPHChecked]= useState(false);
 
